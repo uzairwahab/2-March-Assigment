@@ -1,0 +1,160 @@
+Q1: What is Matplotlib? Why is it used? Name five plots that can be plotted using the Pyplot module of
+Matplotlib.
+ans. Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. Matplotlib 
+makes easy things easy and hard things possible. Create publication quality plots. Make interactive figures that can zoom, pan, update.
+
+1.plot(x, y)
+2.scatter(x, y)
+3.bar(x, height)
+4.stem(x, y)
+5.step(x, y)
+6.fill_between(x, y1, y2)
+7.stackplot(x, y
+
+
+
+Q2: What is a scatter plot? Use the following code to generate data for x and y. Using this generated data
+plot a scatter plot.
+
+ans. A scatter plot (also called a scatterplot, scatter graph, scatter chart, scattergram, or scatter diagram)[3] is a type of plot or mathematical diagram using
+Cartesian coordinates to display values for typically two variables for a set of data. If the points are coded (color/shape/size), one additional variable can be 
+displayed. 
+Code --
+x = np.random.rand(45)
+y = np.random.rand(45)
+plt.scatter(x,y)
+
+
+
+
+import numpy as np
+np.random.seed(3)
+x = 3 + np.random.normal(0, 2, 50)
+y = 3 + np.random.normal(0, 2, len(x))
+Note: Also add title, xlabel, and ylabel to the plot.
+
+ANS. Code--
+import numpy as np
+np.random.seed(3)
+x = 3 + np.random.normal(0, 2, 50)
+y = 3 + np.random.normal(0, 2, len(x))
+plt.plot(x,y)
+plt.xlabel('this is x exis')
+plt.ylabel('this is y exis')
+plt.title('thsi is titel')
+
+
+
+
+Q3: Why is the subplot() function used? Draw four line plots using the subplot() function.
+Use the following data:
+import numpy as np
+For line 1: x = np.array([0, 1, 2, 3, 4, 5]) and y = np.array([0, 100, 200, 300, 400, 500])
+For line 2: x = np.array([0, 1, 2, 3, 4, 5]) and y = np.array([50, 20, 40, 20, 60, 70])
+For line 3: x = np.array([0, 1, 2, 3, 4, 5]) and y = np.array([10, 20, 30, 40, 50, 60])
+For line 4: x = np.array([0, 1, 2, 3, 4, 5]) and y = np.array([200, 350, 250, 550, 450, 150])
+ANS. The subplot() function is used to create multiple plots in a single figure. It takes three arguments: the number of rows, the number of columns, 
+and the plot number (starting from 1). By specifying the plot number, we can create and modify each subplot individually.
+
+Here is an example code to create four line plots using the subplot() function:
+
+CODE--
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the data for each line plot
+x1 = np.array([0, 1, 2, 3, 4, 5])
+y1 = np.array([0, 100, 200, 300, 400, 500])
+
+x2 = np.array([0, 1, 2, 3, 4, 5])
+y2 = np.array([50, 20, 40, 20, 60, 70])
+
+x3 = np.array([0, 1, 2, 3, 4, 5])
+y3 = np.array([10, 20, 30, 40, 50, 60])
+
+x4 = np.array([0, 1, 2, 3, 4, 5])
+y4 = np.array([200, 350, 250, 550, 450, 150])
+
+# Create a figure with four subplots
+fig, axs = plt.subplots(2, 2, figsize=(8, 8))
+
+# Plot the first line plot in the first subplot
+axs[0, 0].plot(x1, y1)
+axs[0, 0].set_title('Line Plot 1')
+
+# Plot the second line plot in the second subplot
+axs[0, 1].plot(x2, y2)
+axs[0, 1].set_title('Line Plot 2')
+
+# Plot the third line plot in the third subplot
+axs[1, 0].plot(x3, y3)
+axs[1, 0].set_title('Line Plot 3')
+
+# Plot the fourth line plot in the fourth subplot
+axs[1, 1].plot(x4, y4)
+axs[1, 1].set_title('Line Plot 4')
+
+# Add a main title to the figure
+fig.suptitle('Four Line Plots')
+
+# Show the figure
+plt.show()
+
+
+
+
+
+
+
+Q4: What is a bar plot? Why is it used? Using the following data plot a bar plot and a horizontal bar plot.
+import numpy as np
+company = np.array(["Apple", "Microsoft", "Google", "AMD"])
+profit = np.array([3000, 8000, 1000, 10000])
+ANS. A bar chart or bar graph is a chart or graph that presents categorical data with rectangular bars with heights or lengths proportional to the values that 
+they represent. The bars can be plotted vertically or horizontally. A vertical bar chart is sometimes called a column chart.
+
+USES OF BAR PLOT--
+Bar graphs/charts provide a visual presentation of categorical data.[4] Categorical data is a grouping of data into discrete groups, such as months of the year,
+age group, shoe sizes, and animals. These categories are usually qualitative. In a column (vertical) bar chart, categories appear along the horizontal axis and the 
+height of the bar corresponds to the value of each category.
+
+CODE --
+BARPLOT--
+import numpy as np
+company = np.array(["Apple", "Microsoft", "Google", "AMD"])
+profit = np.array([3000, 8000, 1000, 10000])
+plt.bar(company, profit)
+
+HORIZONTAL BAR PLLOT--
+import numpy as np
+company = np.array(["Apple", "Microsoft", "Google", "AMD"])
+profit = np.array([3000, 8000, 1000, 10000])
+plt.barh(company, profit)
+
+Q5: What is a box plot? Why is it used? Using the following data plot a box plot.
+box1 = np.random.normal(100, 10, 200)
+box2 = np.random.normal(90, 20, 200)
+ANS. A box plot, also known as a box and whisker plot, is a graphical representation of the distribution of a dataset. It shows the median, quartiles, and extreme values of the data in a compact way.
+
+The box in the plot represents the middle 50% of the data, with the median represented by a line inside the box. The lower and upper edges of the box represent 
+the first and third quartiles, respectively. The whiskers extend from the box to the minimum and maximum values of the data that fall within 1.5 times the 
+interquartile range (IQR) from the box. Any values outside this range are considered outliers and are plotted as individual points.
+
+CODE-- 
+box1 = np.random.normal(100, 10, 200)
+box2 = np.random.normal(90, 20, 200)
+data = [box1, box2]
+plt.boxplot(data, labels=['Box 1', 'Box 2'])
+plt.title('Box Plot of Two Datasets')
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
